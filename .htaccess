@@ -1,0 +1,20 @@
+RewriteEngine On
+#Tenta achar pasta
+RewriteCond %{REQUEST_FILENAME} !-d
+#Tenta achar arquivo
+RewriteCond %{REQUEST_FILENAME} !-f
+#Link simbólico
+RewriteCond %{REQUEST_FILENAME} !-l
+# pega o que estiver no final da url
+#FormularioController/cadastrar e
+# atribui Ex:
+# a=FormularioController
+# b=cadastrar
+# Essas variáveis serão visíveis
+# dentro de $_GET
+# echo $_GET['controller']; // "FormularioController"
+# echo $_GET['method']; // "cadastrar"
+RewriteRule ^([^/]+)/([^/]+)$ index.php?controller=$1&method=$2 [QSA,L]
+#caso não encontre, executa 404
+# OBS: está aqui mas vamos fazer via controller
+#RewriteRule .? /404.php [L]
