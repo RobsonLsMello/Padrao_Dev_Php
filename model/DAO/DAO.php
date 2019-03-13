@@ -10,9 +10,9 @@ abstract class DAO{
  	//construtor da classe, iniciando tudo que precisar do banco de dados
 	public function __construct(){
  		// Criando Conexão
- 		$dsn = 'mysql:dbname=db_padrao;host=localhost;port=3363;';
+ 		$dsn = 'mysql:dbname=db_padrao;host=localhost;port=3336;';
  		$user = 'root';
- 		$password = 'usbw';
+ 		$password = '';
 		$this->connector = new PDO($dsn, $user, $password);
 		$this->connector->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->connector->exec("SET CHARACTER SET utf8");
